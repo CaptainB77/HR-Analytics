@@ -8,4 +8,6 @@ library(readr)
 library (janitor)
 library(stringr)
 
-janitor::remove_empty()
+summary(HR_Employee_Attrition)
+
+HrData = HR_Employee_Attrition [,c(-9,-22,-27)]
