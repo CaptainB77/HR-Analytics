@@ -30,3 +30,7 @@ ggplot(Gender2, aes(x = "", y = n, fill = Gender)) +
   geom_text(aes(label = n),
             position = position_stack(vjust = 0.5)) +
   coord_polar(theta = "y")
+
+#With these we know the most part of the data are male
+
+#Let's take a look to the professions
