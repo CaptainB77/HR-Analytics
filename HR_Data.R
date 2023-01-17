@@ -82,3 +82,30 @@ ggplot(Education, aes(x = "", y = n, fill = EducationField)) +
   geom_text(aes(label = n),
             position = position_stack(vjust = 0.5)) +
   coord_polar(theta = "y")
+
+
+#Education Level
+EducationL = HrData %>% 
+  group_by(Education) %>% 
+  count(Education)
+
+ggplot(EducationL, aes(x = "", y = n, fill = Education)) +
+  geom_col(color = "black") +
+  coord_polar(theta = "y") +
+  geom_text(aes(label = n),
+            position = position_stack(vjust = 0.5)) +
+  coord_polar(theta = "y")
+
+
+#How many years they have at the company
+YearsCompany = HrData %>% 
+  group_by(YearsAtCompany) %>% 
+  count(YearsAtCompany)
+
+YearsCompany %>% 
+  ggplot(aes(y = n , x = YearsAtCompany , fill = YearsAtCompany )) +
+  geom_bar(stat="identity",position=position_dodge(), alpha = 0.8) + 
+  theme_minimal() + 
+  scale_fill_gradient(low="#4f908c",high="#6e0ff9") +  
+  theme(legend.position="none")+
+  geom_text(aes(label= n), hjust= -0.2)
