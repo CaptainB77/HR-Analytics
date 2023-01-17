@@ -124,3 +124,15 @@ Age %>%
   theme(legend.position="none")+
   geom_text(aes(label= n), hjust= -0.2)
 
+#Avarage age for department 
+
+DeptAge = HrData %>% 
+  select(Department, Age) 
+
+DeptAge %>%
+  group_by(Department) %>%
+  summarize(mean_age = mean(Age)) %>% 
+  ggplot(aes(x = Department, y = mean_age,fill=Department)) +
+  geom_bar(stat = "identity") +
+  ggtitle("Average Age by Department") +
+  geom_text(aes(label= mean_age), hjust= 0.5)
