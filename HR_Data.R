@@ -33,4 +33,52 @@ ggplot(Gender2, aes(x = "", y = n, fill = Gender)) +
 
 #With these we know the most part of the data are male
 
-#Let's take a look to the professions
+#Let's take a look to the marital status
+
+Marital = HrData %>% 
+  group_by(MaritalStatus) %>% 
+  count(MaritalStatus)
+
+ggplot(Marital, aes(x = "", y = n, fill = MaritalStatus)) +
+  geom_col(color = "black") +
+  coord_polar(theta = "y") +
+  geom_text(aes(label = n),
+            position = position_stack(vjust = 0.5)) +
+  coord_polar(theta = "y")
+
+#How many of them travel
+
+Travel = HrData %>% 
+  group_by(BusinessTravel) %>% 
+  count(BusinessTravel)
+
+ggplot(Travel, aes(x = "", y = n, fill = BusinessTravel)) +
+  geom_col(color = "black") +
+  coord_polar(theta = "y") +
+  geom_text(aes(label = n),
+            position = position_stack(vjust = 0.5)) +
+  coord_polar(theta = "y")
+
+#About the job role
+JobR = HrData %>% 
+  group_by(JobRole) %>% 
+  count(JobRole)
+
+ggplot(JobR, aes(x = "", y = n, fill = JobRole)) +
+  geom_col(color = "black") +
+  coord_polar(theta = "y") +
+  geom_text(aes(label = n),
+            position = position_stack(vjust = 0.5)) +
+  coord_polar(theta = "y")
+
+#Education Field
+Education = HrData %>% 
+  group_by(EducationField) %>% 
+  count(EducationField)
+
+ggplot(Education, aes(x = "", y = n, fill = EducationField)) +
+  geom_col(color = "black") +
+  coord_polar(theta = "y") +
+  geom_text(aes(label = n),
+            position = position_stack(vjust = 0.5)) +
+  coord_polar(theta = "y")
