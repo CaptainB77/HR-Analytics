@@ -109,3 +109,18 @@ YearsCompany %>%
   scale_fill_gradient(low="#4f908c",high="#6e0ff9") +  
   theme(legend.position="none")+
   geom_text(aes(label= n), hjust= -0.2)
+
+#About their age
+
+Age = HrData %>% 
+  group_by(Age) %>% 
+  count(Age)
+
+Age %>% 
+  ggplot(aes(y = n , x = Age , fill = Age )) +
+  geom_bar(stat="identity",position=position_dodge(), alpha = 0.8) + 
+  theme_minimal() + 
+  scale_fill_gradient(low="#4f908c",high="#6e0ff9") +  
+  theme(legend.position="none")+
+  geom_text(aes(label= n), hjust= -0.2)
+
