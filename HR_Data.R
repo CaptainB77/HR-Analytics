@@ -124,7 +124,7 @@ Age %>%
   theme(legend.position="none")+
   geom_text(aes(label= n), hjust= -0.2)
 
-#Avarage age for department 
+#Average age for department 
 
 DeptAge = HrData %>% 
   select(Department, Age) 
@@ -136,3 +136,24 @@ DeptAge %>%
   geom_bar(stat = "identity") +
   ggtitle("Average Age by Department") +
   geom_text(aes(label= mean_age), hjust= 0.5)
+
+
+#Let's take a look to the monthly income, comparing by gender
+
+ggplot(data = HrData, aes(x = Department, y = MonthlyIncome, fill = Gender)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  facet_wrap(~ Gender) +
+  ggtitle("Monthly Income by Department and Gender") +
+  xlab("Department") +
+  ylab("Monthly Income") +
+  theme(axis.text.x = element_text(angle = 45))
+
+#Let's take a look to the job satisfaction, comparing by gender
+
+ggplot(data = HrData, aes(x = JobLevel, y = MonthlyIncome, fill = Gender)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  facet_wrap(~ Gender) +
+  ggtitle("Monthly Income by Job Level and Gender") +
+  xlab("Job Level") +
+  ylab("Monthly Income") +
+  theme(axis.text.x = element_text(angle = 45))
